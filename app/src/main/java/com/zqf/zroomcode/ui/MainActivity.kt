@@ -1,6 +1,7 @@
 package com.zqf.zroomcode.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -43,10 +44,15 @@ class MainActivity : AppCompatActivity() {
         queryBtn.setOnClickListener { query() }
         insertBtn.setOnClickListener { insert() }
         deleteBtn.setOnClickListener { delete() }
+        updateBtn.setOnClickListener { update() }
     }
 
+    /**
+     * 查询
+     */
     private fun query() {
         val list: MutableList<User> = userDao.queryAllUser()
+        Log.e("TAG", list.toString())
         if (list.size > 0) {
             userAdapter.setList(list)
         } else {
@@ -54,14 +60,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * 插入数据
+     */
     private fun insert() {
         runBlocking {
             for (a in 1..10) {
                 val user = User(
                     "张三$a",
                     20 + a,
-                    "贵阳市观山湖去区$a",
-                    "https://img1.baidu.com/it/u=2838359103,4082675852&fm=253&fmt=auto&app=120&f=JPEG?w=889&h=500"
+                    "贵阳市观山湖区$a",
+                    ""
                 )
                 userDao.addUser(user)
             }
@@ -69,9 +78,31 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * 删除loginUser表里的所有数据【目前指定删除某一个】
+     */
     private fun delete() {
         runBlocking {
-            userDao.deleteUser()
+            val user = userDao.queryFindUser("张三1")
+            Log.e("TAG", "user: $user")
+            if (user != null) {
+                userDao.deleteUser(user)
+            }
+        }
+    }
+
+    /**
+     * 更新数据
+     */
+    private fun update() {
+        runBlocking {
+            val user = userDao.queryFindUser("张三2")
+            Log.e("TAG", "user: $user")
+            if (user != null) {
+                val id = user.id
+                val newUser = User(id, "李四", user.age, user.ads, user.avatar)
+                userDao.updateUser(newUser)
+            }
         }
     }
 

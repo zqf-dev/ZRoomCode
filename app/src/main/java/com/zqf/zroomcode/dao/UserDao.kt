@@ -14,6 +14,10 @@ interface UserDao {
     @Query("SELECT * FROM loginUser")
     fun queryAllUser(): MutableList<User>
 
+    //根据姓名参数查询
+    @Query("SELECT * FROM loginUser WHERE name = :name")
+    fun queryFindUser(name: String): User?
+
     // 添加
     @Insert
     fun addUser(vararg user: User)
