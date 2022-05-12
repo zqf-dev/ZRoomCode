@@ -26,7 +26,9 @@ data class User(
     var age: Int = 0,
     var ads: String = "",
     @Ignore
-    var avatar: String = ""
+    var avatar: String = "",
+    //数据库升级时测试的 新增字段
+    var gender: Int = 0
 ) {
     constructor(aliasName: String, age: Int, ads: String, avatar: String) : this() {
         this.aliasName = aliasName
