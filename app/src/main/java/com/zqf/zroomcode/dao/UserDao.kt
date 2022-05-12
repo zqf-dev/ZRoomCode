@@ -3,6 +3,7 @@ package com.zqf.zroomcode.dao
 import androidx.room.*
 import com.zqf.zroomcode.entity.User
 
+
 /**
  * Author: zqf
  * Date: 2022/05/11
@@ -18,15 +19,27 @@ interface UserDao {
     @Query("SELECT * FROM loginUser WHERE name = :name")
     fun queryFindUser(name: String): User?
 
-    // 添加
+    // 添加单条数据
     @Insert
     fun addUser(vararg user: User)
 
-    // 更新
+    // 添加批量数据
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addBatchUser(list: MutableList<User>)
+
+    // 更新某一个数据
     @Update
     fun updateUser(vararg user: User)
 
-    //删除
+    //更新所有数据
+    @Query("UPDATE loginUser set age='50'")
+    fun updateAll()
+
+    //删除某一个数据
     @Delete
-    fun deleteUser(vararg user: User)
+    fun deleteSingle(vararg user: User)
+
+    //删除表里所有数据
+    @Query("DELETE FROM loginUser")
+    fun deleteAllUser()
 }
