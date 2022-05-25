@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
             val res = Get<List<ChannelEntity>>("http://toutiao.itheima.net/v1_0/user/channels") {
                 converter = HmConverter()
             }.await()
-            Log.e(TagL, "res-- $res")
+            Log.e(TagL, "response-- $res")
         }
     }
 
