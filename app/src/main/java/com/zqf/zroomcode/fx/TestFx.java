@@ -23,6 +23,7 @@ class TestFx {
         Class cls2 = intList.getClass();
         System.out.println("cls1--->" + cls1);
         System.out.println("cls2--->" + cls2);
+        System.out.println("cls3--->" + cls2);
 
         /**
          * 泛型类的使用
