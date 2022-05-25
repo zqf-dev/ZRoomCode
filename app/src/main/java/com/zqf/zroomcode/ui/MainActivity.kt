@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun testNet() {
-        //网络框架
+        //网络框架 协程使用
         scopeNetLife {
             val res = Get<List<ChannelEntity>>("http://toutiao.itheima.net/v1_0/user/channels") {
                 converter = HmConverter()
