@@ -3,17 +3,17 @@ package com.zqf.zroomcode.ui
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.RoomOpenHelper
+import com.drake.net.Get
+import com.drake.net.utils.scopeNetLife
 import com.zqf.zroomcode.R
 import com.zqf.zroomcode.dao.UserDao
 import com.zqf.zroomcode.entity.User
+import com.zqf.zroomcode.entity.ChannelEntity
 import com.zqf.zroomcode.ui.adapter.UserAdapter
-import com.zqf.zroomcode.utils.DbManager
-import com.zqf.zroomcode.utils.ToastUtil
+import com.zqf.zroomcode.utils.*
 import kotlinx.coroutines.runBlocking
 import kotlin.random.Random
 
@@ -57,6 +57,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
         insertAll()
+        testNet()
+    }
+
+    private fun testNet() {
+        //网络框架
+        scopeNetLife {
+            val res = Get<List<ChannelEntity>>("http://toutiao.itheima.net/v1_0/user/channels") {
+                converter = HmConverter()
+            }.await()
+            Log.e(TagL, "res-- $res")
+        }
     }
 
     /**

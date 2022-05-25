@@ -55,4 +55,15 @@ dependencies {
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    //Navigation Kotlin
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.nav_version"
+    //协程库(版本可自定)
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+    //OkHttp
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    //Net
+    implementation 'com.github.liangjingkanji:Net:3.4.6'
+    //gson
+    implementation 'com.google.code.gson:gson:2.9.0'
 }

@@ -1,6 +1,8 @@
 package com.zqf.zroomcode.app
 
 import android.app.Application
+import com.drake.net.NetConfig
+import com.drake.net.interceptor.LogRecordInterceptor
 
 /**
  * Author: zqf
@@ -20,5 +22,13 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         app = this
+        initNet()
+    }
+
+    private fun initNet() {
+        val baseUrl = "http://www.baidu.com"
+        NetConfig.initialize(baseUrl, this) {
+            addInterceptor(LogRecordInterceptor(true))
+        }
     }
 }
