@@ -1,6 +1,8 @@
 package com.zqf.zroomcode.ui
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -10,10 +12,13 @@ import com.drake.net.Get
 import com.drake.net.utils.scopeNetLife
 import com.zqf.zroomcode.R
 import com.zqf.zroomcode.dao.UserDao
-import com.zqf.zroomcode.entity.User
 import com.zqf.zroomcode.entity.ChannelEntity
+import com.zqf.zroomcode.entity.User
 import com.zqf.zroomcode.ui.adapter.UserAdapter
-import com.zqf.zroomcode.utils.*
+import com.zqf.zroomcode.utils.ContextHelper
+import com.zqf.zroomcode.utils.DbManager
+import com.zqf.zroomcode.utils.HmConverter
+import com.zqf.zroomcode.utils.ToastUtil
 import kotlinx.coroutines.runBlocking
 import kotlin.random.Random
 
@@ -57,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         insertAll()
-        testNet()
+        Log.e(TagL, "====" + ContextHelper.getApp())
     }
 
     private fun testNet() {
