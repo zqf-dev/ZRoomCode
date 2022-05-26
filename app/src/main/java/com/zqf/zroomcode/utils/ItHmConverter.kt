@@ -15,6 +15,7 @@ import java.lang.reflect.Type
 /**
  * Author: zqf
  * Date: 2022/05/17
+ * ITHm的数据转化类
  */
 abstract class ItHmConverter(
     val success: String = "OK",
