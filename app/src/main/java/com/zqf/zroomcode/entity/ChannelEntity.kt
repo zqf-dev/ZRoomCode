@@ -3,6 +3,7 @@ package com.zqf.zroomcode.entity
 /**
  * Author: zqf
  * Date: 2022/05/17
+ * 频道实体类
  */
 class ChannelEntity {
 
