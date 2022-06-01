@@ -62,7 +62,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
         insertAll()
-        Log.e(TagL, "====" + ContextHelper.getApp())
     }
 
     private fun testNet() {
