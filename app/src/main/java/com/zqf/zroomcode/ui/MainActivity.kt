@@ -12,6 +12,7 @@ import com.drake.net.Get
 import com.drake.net.utils.scopeNetLife
 import com.zqf.zroomcode.R
 import com.zqf.zroomcode.dao.UserDao
+import com.zqf.zroomcode.entity.BannerEntity
 import com.zqf.zroomcode.entity.ChannelEntity
 import com.zqf.zroomcode.entity.User
 import com.zqf.zroomcode.ui.adapter.UserAdapter
