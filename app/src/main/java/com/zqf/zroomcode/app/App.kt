@@ -26,7 +26,7 @@ class App : Application() {
     }
 
     private fun initNet() {
-        val baseUrl = "http://www.baidu.com"
+        val baseUrl = "https://www.wanandroid.com/"
         NetConfig.initialize(baseUrl, this) {
             addInterceptor(LogRecordInterceptor(true))
         }
