@@ -1,5 +1,6 @@
 package com.zqf.zroomcode.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -21,6 +22,7 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private val TagL = MainActivity::class.java.simpleName
+    private lateinit var net: Button
     private lateinit var queryBtn: Button
     private lateinit var insertBtn: Button
     private lateinit var updateBtn: Button
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun findVbId() {
+        net = findViewById(R.id.net)
         queryBtn = findViewById(R.id.query)
         insertBtn = findViewById(R.id.insert)
         updateBtn = findViewById(R.id.update)
@@ -48,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         resultRecycle.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         resultRecycle.adapter = userAdapter
         userAdapter.addChildClickViewIds(R.id.item_delete, R.id.item_modify)
+        net.setOnClickListener { startActivity(Intent(this, NetFrameActivity::class.java)) }
         queryBtn.setOnClickListener { query() }
         insertBtn.setOnClickListener { insertSingle() }
         deleteBtn.setOnClickListener { delete() }
@@ -59,16 +63,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
         insertAll()
-    }
-
-    private fun testNet() {
-        //网络框架 协程使用
-        scopeNetLife {
-            val res = Get<List<ChannelEntity>>("http://toutiao.itheima.net/v1_0/user/channels") {
-                converter = HmConverter()
-            }.await()
-            Log.e(TagL, "response-- $res")
-        }
     }
 
     /**

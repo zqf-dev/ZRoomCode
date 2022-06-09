@@ -45,6 +45,13 @@
 
     </LinearLayout>
 
+    <Button
+        android:layout_marginLeft="10dp"
+        android:id="@+id/net"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/net_test_str" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/result_recycle"
         android:layout_width="match_parent"
