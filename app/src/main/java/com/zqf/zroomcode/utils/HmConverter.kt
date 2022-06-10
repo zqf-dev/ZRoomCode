@@ -26,7 +26,8 @@ class HmConverter : ItHmConverter(message = "message", success = "OK") {
 //                val array = JSONObject(data).getString("channels")
 //                gson.fromJson(array, succeed)
 //            }
-            gson.fromJson(JSONObject(this).getString("data"), succeed)
+            val data = JSONObject(this).getString("data")
+            gson.fromJson(JSONObject(data).getString("channels"), succeed)
         } catch (e: Exception) {
             Log.e("TAG", "异常解析-- ")
             gson.fromJson(this, succeed)
