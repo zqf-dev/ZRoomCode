@@ -1,7 +1,5 @@
 package com.zqf.zroomcode.ui.adapter
 
-import android.graphics.Color
-import android.graphics.Color.red
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
