@@ -16,6 +16,7 @@ import com.zqf.zroomcode.utils.HmConverter
  * Author: zqf
  * Date: 2022/06/02
  * Net 第三方网络框架测试类
+ * github: https://github.com/liangjingkanji/Net
  */
 class NetFrameActivity : AppCompatActivity() {
 

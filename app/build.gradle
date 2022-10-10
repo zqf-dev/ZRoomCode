@@ -62,8 +62,8 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
     //OkHttp
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
-    //Net
-    implementation 'com.github.liangjingkanji:Net:3.4.6'
     //gson
     implementation 'com.google.code.gson:gson:2.9.0'
+    //Net
+    implementation 'com.github.liangjingkanji:Net:3.4.6'
 }
